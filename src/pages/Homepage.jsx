@@ -1,7 +1,9 @@
 export default function Homepage() {
   return (
     <div>
-      Homepage
+      <h1>WorldWise</h1>
+
+      <a href="pricing">Pricing</a>
     </div>
   )
 }
