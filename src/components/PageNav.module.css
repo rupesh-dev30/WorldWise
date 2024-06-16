@@ -8,7 +8,9 @@
 
 }
 
-.nav ul li{
+:global(.nav ul li){
   font-size: 30px;
   list-style: none;
 }
+
+
