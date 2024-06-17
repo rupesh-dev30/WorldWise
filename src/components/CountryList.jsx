@@ -2,6 +2,7 @@ import Spinner from "./Spinner";
 import CountryItem from "./CountryItem";
 import Message from "./Message";
 import styles from "./CountryList.module.css";
+import PropTypes from 'prop-types';
 
 export default function CityList({ cities, isLoading }) {
   if (isLoading) return <Spinner />;
@@ -25,3 +26,15 @@ export default function CityList({ cities, isLoading }) {
     </ul>
   );
 }
+
+CityList.propTypes = {
+  cities: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      country: PropTypes.string,
+      emoji: PropTypes.string,
+    })
+  ).isRequired,
+  isLoading: PropTypes.bool,
+};
