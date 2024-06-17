@@ -2,7 +2,6 @@ import Spinner from "./Spinner";
 import CountryItem from "./CountryItem";
 import Message from "./Message";
 import styles from "./CountryList.module.css";
-import PropTypes from 'prop-types';
 
 export default function CityList({ cities, isLoading }) {
   if (isLoading) return <Spinner />;
@@ -21,20 +20,9 @@ export default function CityList({ cities, isLoading }) {
   return (
     <ul className={styles.countryList}>
       {countries.map((country) => (
-        <CountryItem country={country} key={country.id} />
+        <CountryItem country={country} key={country.country} />
       ))}
     </ul>
   );
 }
 
-CityList.propTypes = {
-  cities: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      country: PropTypes.string,
-      emoji: PropTypes.string,
-    })
-  ).isRequired,
-  isLoading: PropTypes.bool,
-};
