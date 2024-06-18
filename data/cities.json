@@ -1,15 +1,15 @@
 {
   "cities": [
     {
-      "id": "e8aa",
-      "cityName": "Gomara",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2024-06-18T17:56:42.075Z",
-      "notes": "",
+      "id": "ce2e",
+      "cityName": "Bokaro Thermal",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2024-06-01T18:22:54.000Z",
+      "notes": "My Home, I loved this place",
       "position": {
-        "lat": "41.60722821271717",
-        "lng": "-2.2412109375000004"
+        "lat": "23.791392281839105",
+        "lng": "85.88837742805481"
       }
     }
   ]
