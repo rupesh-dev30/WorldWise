@@ -43,6 +43,7 @@ function reducer(state, action) {
         ...state, 
         isloading: false,
         cities: [...state.cities, action.payload],
+        currentCity: action.payload
       }
 
     case "city/deleted":
@@ -50,6 +51,7 @@ function reducer(state, action) {
         ...state, 
         isloading: false,
         cities: state.cities.filter((city) => city.id !== action.payload),
+        currentCity: {}
       }
 
     case "rejected":
@@ -65,7 +67,7 @@ function reducer(state, action) {
 }
 
 function CitiesProvider({ children }) {
-  const [{ cities, isloading, currentCity }, dispatch] = useReducer(
+  const [{ cities, isloading, currentCity, error }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -92,6 +94,9 @@ function CitiesProvider({ children }) {
   }, []);
 
   async function getCity(id) {
+    //Anything which are comming from URL is automatically converted into string. Here (id is string and currentCity.id is NUMBER) then it never equal.
+    if(Number(id) === currentCity.id) return;
+
     dispatch({ type: "loading" });
 
     try {
@@ -149,6 +154,7 @@ function CitiesProvider({ children }) {
         cities,
         isloading,
         currentCity,
+        error,
         getCity,
         createCity,
         deleteCity,
